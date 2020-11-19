@@ -1,0 +1,159 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - book_room
+  - room_no
+  - room_type_1
+  #- book_room_with_number
+  - clean_room
+  - time_now
+  - time_after_sometime
+  - ask_checkin
+  - ask_checkout
+  - ask_cencel_reservation
+  - ask_policy
+  - ask_restaurant
+  - ask_breakfast
+  - ask_breakfast_time
+  - ask_restaurant_time
+  - ask_contact_details
+  - ask_security
+  - confirm
+  - deny
+
+entities:
+  - number_room
+  - r_type
+
+slots:
+  number_room:
+    type: unfeaturized 
+  r_type:
+    type: unfeaturized
+    
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+
+  utter_ask_room:
+  - text: |-
+          How many rooms would you like to book? 
+          -1
+          -2
+
+  utter_room_type:
+  - text: |-
+          What type of room would you want to book : 
+          - Simple
+          - Deluxe
+  
+  
+  #buttons:
+  # - title: Simple
+  #  payload: /room_type_1{"r_type":"Simple"}
+  #  - title: Deluxe
+  #    payload: /room_type_1{"r_type":"Deluxe"}
+     
+ 
+
+  utter_book_details_1:
+  - text: 'You have chosen {number_room} room to book {R_type} room.'
+
+  utter_confirm_it:
+  - text: "Please confirm the room details"
+
+  utter_next_confirm:
+  - text: "Okay, Your booking is confirmed"
+
+  utter_next_deny:
+  - text: "Please follow the booking process again with correct information"
+
+  utter_goodbye:
+  - text: "Goodbye"
+
+  utter_ask_time:
+  - text: "When should I arrange for a cleaning?"
+
+  utter_quick_response:
+  - text: "Sure, I will send someone to your room right away."
+
+  utter_response_later:
+  - text: "Sure, I have scheduled a cleaning for 5 pm today."
+
+  utter_checkin:
+  - text: "Check-in time starts at 4 PM. Minimum check-in age is 21. Please contact the reception for early check-in requests."
+
+  utter_checkout:
+  - text: "Check-out time is 11 AM. Please contact the reception for late checkout requests."
+
+  utter_cancel_reservation:
+  - text: "To cancel a reservation, select the “Reservations” link from the homepage."
+
+  utter_cancel_reservation_more:
+  - text: "On the Reservations page, under the heading ‘View, Change or Cancel a Reservation,’ enter your confirmation number, and either the last name on the reservation or the last four digits of the credit card used to make the reservation."
+
+  utter_policy:
+  - text: "The booking deposit is refundable if the cancellation occurs at least 15 days before arrival. For cancellations made after this limit, a penalty will be imposed based on the cancellation policy."
+
+  utter_restaurant:
+  - text: "Yes, the hotel has a restaurant called the Zephyr Bar. With our menu we strive to reflect the historic art and the spirit of our neighborhood by offering a glimpse into what makes our area unique."
+
+  utter_breakfast:
+  - text: "The hotel provides its guests with a free made-to-order breakfast each morning."
+
+  utter_breakfast_time:
+  - text: "Monday through Friday breakfast is 6 am to 9 am. On Saturday and Sunday, we are open from 7 am to 10:30 am."
+
+  utter_restaurant_time:
+  - text: "Our restaurant serves a dazzling 24-hour menu."
+
+  utter_contact_details:
+  - text: |-
+          Contact Number-928467
+          Mail ID:- hotel@abc.com
+          Address:- xyz Nagar PQR city, 305781
+
+  utter_security:
+  - text: |-
+          The Hotel has the following Security Arrangements:
+          Fire Safety
+          Wet Riser System
+          Alarm Syste
+          CCTV Cameras
+          24-hours Control Room to monitor the security cameras
+          EVD Machine to scan the luggage 
+          24-hours fire fighting & first aid trained security guards
+
+actions:
+  - utter_greet
+  - utter_ask_room
+  - utter_room_type
+  - utter_book_details_1
+  - utter_confirm_it
+  - utter_next_confirm
+  - utter_next_deny
+  - utter_goodbye
+  - utter_ask_time
+  - utter_quick_response
+  - utter_response_later
+  - utter_checkin
+  - utter_checkout
+  - utter_cancel_reservation
+  - utter_cancel_reservation_more
+  - utter_policy
+  - utter_restaurant
+  - utter_breakfast
+  - utter_breakfast_time
+  - utter_restaurant_time
+  - utter_contact_details
+  - utter_security
+
+forms:
+- form_book_room
+- form_book_room_with_number
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
